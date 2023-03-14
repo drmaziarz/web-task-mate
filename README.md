@@ -1,4 +1,4 @@
-# 📑 Minimalistic web todo app called Task Mate
+# 📑 Task Mate - minimalistic todo app
 
 ### 💬 Functionalities:
 - 🎯 Add task to the list
