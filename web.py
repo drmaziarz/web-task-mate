@@ -33,7 +33,6 @@ for index, todo in enumerate(todos):
         del st.session_state[todo]
         st.experimental_rerun()
 
-
-st.session_state.setdefault("new_todo", "")
-if new_todo != st.session_state["new_todo"]:
-    st.session_state["new_todo"] = new_todo
+    st.session_state.setdefault("new_todo", "")
+    if new_todo != st.session_state["new_todo"]:
+        st.session_state["new_todo"] = new_todo
