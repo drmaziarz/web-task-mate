@@ -1,5 +1,10 @@
 import streamlit as st
 from functions import get_todos, write_todos
+import os
+
+if not os.path.exists("todos.txt"):
+    with open("todos.txt", "w") as file:
+        pass
 
 todos = get_todos()
 
@@ -15,6 +20,11 @@ st.title("TaskMate")
 st.subheader("Your productivity partner")
 st.write("")
 
+new_todo = st.text_input(label="Enter a todo:",
+                         placeholder="Add new todo...",
+                         on_change=add_todo,
+                         key="new_todo")
+
 for index, todo in enumerate(todos):
     checkbox = st.checkbox(todo, key=todo)
     if checkbox:
@@ -23,10 +33,6 @@ for index, todo in enumerate(todos):
         del st.session_state[todo]
         st.experimental_rerun()
 
-new_todo = st.text_input(label="Enter a todo:",
-                         placeholder="Add new todo...",
-                         on_change=add_todo,
-                         key="new_todo")
 
 st.session_state.setdefault("new_todo", "")
 if new_todo != st.session_state["new_todo"]:
