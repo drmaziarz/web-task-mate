@@ -1,8 +1,6 @@
 import streamlit as st
 from functions import get_todos, write_todos
 
-write_todos([])
-
 todos = get_todos()
 
 
